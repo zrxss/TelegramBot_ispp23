@@ -1,0 +1,16 @@
+
+#VirtualEnvironment
+.venv
+.env
+
+#Python
+__pycache__/
+
+#JetBrains
+.idea/
+
+#files and dir
+config.py
+tasks.db
+failed_file/
+
