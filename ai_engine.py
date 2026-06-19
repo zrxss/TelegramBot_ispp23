@@ -3,6 +3,7 @@ from mistralai.client import Mistral
 from config import GEMINI_KEY,MISTRAL_KEY
 
 import json
+import random
 
 from prompts import *
 
@@ -36,13 +37,19 @@ async def analyze_task(text):   # Функция-фильтр определяю
     return answer
 
 
+def random_style(language):
+    reprompt = REPROMPT_DICT.get(language, REPROMPT_DICT["unknown"])
+    style =  STYLE_DICT[random.randint(1,4)]
+    reprompt =  reprompt.replace('{style}', style)
+    return reprompt
+
 
 async def generate_answer(task_text, language = "unknown", regen = False):   # Функция генерации ответа для задания от ИИ
     language = language.strip().lower()
 
     prompt = PROMPT_DICT.get(language, PROMPT_DICT["unknown"])
     if regen:
-        reprompt = REPROMPT_DICT.get(language, REPROMPT_DICT["unknown"])
+        reprompt = random_style(language)
         try:
             answer = await client_g.aio.models.generate_content(
                 model="gemini-3.5-flash",
