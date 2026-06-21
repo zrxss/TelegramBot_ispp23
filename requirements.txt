@@ -1,0 +1,4 @@
+aiogram~=3.25.0
+mammoth~=1.12.0
+google-genai~=2.8.0
+mistralai~=2.4.9
