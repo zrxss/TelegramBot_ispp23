@@ -14,7 +14,7 @@
 
 ## Технологии
 
-
+- Python
 - aiogram 3.x
 - SQLite
 - Gemini API
@@ -41,7 +41,7 @@ pip install -r requirements.txt
 ```
 ## Настройка
 
-Создать файл config.py по примеру config.example.py:
+Создать файл `config.py` по примеру `config.example.py`:
 ```
 TOKEN = "your_bot_token_here"
 GEMINI_KEY = "your_gemini_key_here"
